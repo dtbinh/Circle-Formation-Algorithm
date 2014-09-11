@@ -5,6 +5,7 @@
 using namespace std;
 
 #define pi 3.1415
+#define NO_OF_BOTS 11
 
 int compare(double one[], double two[], int len) // returns the smaller of the two
 {
@@ -83,24 +84,11 @@ bool is_lyndon_word(double angles[], int len) //here len is the number of robots
 
 int main() 
 {
-	double angles[80];
-	int len;
-	len=5;
-	// angles[0]=pi/10;
-	// angles[1]=pi/10;
-	// angles[2]=pi/6;
-	// angles[3]=pi/3;
-	angles[0]=1;
-	angles[1]=1;
-	angles[2]=0;
-	angles[3]=1;
-	angles[4]=1;
-	cout<<"\n"<<is_lyndon_word(angles, len)<<"\n";
-
+	int len=5;
 
 	//This part will be executed in each bot...............................
 	bool lws[len];
-	int lws_count=0, n=-1, m=-1, int leader;
+	int lws_count=0, n=-1, m=-1; int leader;
 	for(int i=0;i<len;i++)
 		lws[i]=false;
 	for(int i=0;i<NO_OF_BOTS;i++)						//**len=NO_OF_BOTS is basically the number of bots, no of angles, the length of the word
@@ -116,7 +104,9 @@ int main()
 				lws_count++;
 
 		if(lws_count==1)
+		{
 			//this bot is the leader
+		}
 		else if(lws_count==2)
 		{
 			for(int i=0;i<len;i++)
